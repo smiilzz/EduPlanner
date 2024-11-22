@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos y Feriados</title>
+</head>
+<body>
+    <h1>Lista de Proyectos</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha de Término</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for proyecto in fechas %}
+                <tr>
+                    <td>{{ proyecto.title }}</td>
+                    <td>{{ proyecto.description }}</td>
+                    <td>{{ proyecto.FechaInicio }}</td>
+                    <td>{{ proyecto.FechaTermino }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Lista de Feriados</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if feriados %}
+                {% for feriado in feriados %}
+                    <tr>
+                        <td>{{ feriado.nombre }}</td>
+                        <td>{{ feriado.fecha }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="2">No se pudieron cargar los feriados.</td>
+                </tr>
+        {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>
